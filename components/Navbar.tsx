@@ -30,20 +30,20 @@ export default function Navbar() {
 
   // Active section tracker
   useEffect(() => {
-  const handleScroll = () => {
-    const offsets = NAV_LINKS.map((l) => {
-      const el = document.querySelector(l.href);
-      if (!el) return { href: l.href, top: Infinity };
-      return { href: l.href, top: Math.abs(el.getBoundingClientRect().top) };
-    });
-    const closest = offsets.reduce((a, b) => (a.top < b.top ? a : b));
-    setActiveSection(closest.href);
-  };
+    const handleScroll = () => {
+      const offsets = NAV_LINKS.map((l) => {
+        const el = document.querySelector(l.href);
+        if (!el) return { href: l.href, top: Infinity };
+        return { href: l.href, top: Math.abs(el.getBoundingClientRect().top) };
+      });
+      const closest = offsets.reduce((a, b) => (a.top < b.top ? a : b));
+      setActiveSection(closest.href);
+    };
 
-  window.addEventListener("scroll", handleScroll, { passive: true });
-  handleScroll(); // run on mount too
-  return () => window.removeEventListener("scroll", handleScroll);
-}, []);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Move pill to active link
   useEffect(() => {
@@ -89,18 +89,19 @@ export default function Navbar() {
       >
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
 
-          {/* Logo */}
-          <a
-            href="#"
+          {/* Logo — fades in once scrolled */}
+          
+            <a href="#"
             onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
-            className="flex items-center gap-2 group"
+            className="flex items-center group"
           >
-            <span className="w-7 h-7 rounded-full bg-red-600 flex items-center justify-center text-white text-xs font-black shadow-lg shadow-red-900/50 group-hover:scale-110 transition-transform duration-200">
-              A
-            </span>
-            <span className="text-white font-serif font-bold text-lg tracking-wide leading-none">
-              Ambrose <span className="text-red-500">Pizza</span>
-            </span>
+            <img
+              src="/ambrose-logo-white.png"
+              alt="Ambrose Pizza & Wings"
+              className={`h-12 w-auto object-contain group-hover:scale-105 transition-all duration-500 ${
+                scrolled ? "opacity-100" : "opacity-0 pointer-events-none"
+              }`}
+            />
           </a>
 
           {/* Desktop links */}
@@ -119,8 +120,8 @@ export default function Navbar() {
             {NAV_LINKS.map((link, i) => {
               const isActive = activeSection === link.href;
               return (
-                <a
-                  key={link.href}
+                
+                  <a key={link.href}
                   href={link.href}
                   ref={(el) => { linkRefs.current[i] = el; }}
                   onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
@@ -177,12 +178,17 @@ export default function Navbar() {
             menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
           }`}
         >
+          {/* Logo in mobile overlay */}
           <div
-            className={`mb-8 text-center transition-all duration-500 delay-100 ${
+            className={`mb-8 transition-all duration-500 delay-100 ${
               menuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-            <p className="text-white/20 text-xs uppercase tracking-[0.4em] font-semibold">Ambrose Pizza</p>
+            <img
+              src="/ambrose-logo-white.png"
+              alt="Ambrose Pizza & Wings"
+              className="h-16 w-auto object-contain"
+            />
           </div>
 
           {NAV_LINKS.map((link, i) => (
