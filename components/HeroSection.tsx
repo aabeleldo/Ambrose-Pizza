@@ -13,7 +13,14 @@ const DEALS = [
       { size: "XL", price: "$30" },
     ],
     image: "/deal-1.png",
-    bg: "bg-red-50",
+    bg: "bg-red-600",
+    tagBg: "bg-red-800",
+    titleColor: "text-white",
+    descColor: "text-red-100",
+    priceColor: "text-white",
+    sizeColor: "text-red-200",
+    btnBg: "bg-white hover:bg-gray-100",
+    btnText: "text-red-600",
   },
   {
     tag: "Most Popular",
@@ -26,7 +33,14 @@ const DEALS = [
       { size: "XL", price: "$50" },
     ],
     image: "/deal-2.png",
-    bg: "bg-orange-50",
+    bg: "bg-red-600",
+    tagBg: "bg-red-800",
+    titleColor: "text-white",
+    descColor: "text-red-100",
+    priceColor: "text-white",
+    sizeColor: "text-red-200",
+    btnBg: "bg-white hover:bg-gray-100",
+    btnText: "text-red-600",
   },
   {
     tag: "Best Value",
@@ -36,7 +50,14 @@ const DEALS = [
       { size: "", price: "$45" },
     ],
     image: "/deal-3.png",
-    bg: "bg-red-50",
+    bg: "bg-red-600",
+    tagBg: "bg-red-800",
+    titleColor: "text-white",
+    descColor: "text-red-100",
+    priceColor: "text-white",
+    sizeColor: "text-red-200",
+    btnBg: "bg-white hover:bg-gray-100",
+    btnText: "text-red-600",
   },
 ];
 
@@ -117,31 +138,34 @@ export default function HeroSection() {
               <div className="md:w-1/2 flex flex-col justify-center px-8 pb-10 md:py-10 gap-4">
 
                 {/* Tag */}
-                <span className="self-start bg-red-600 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest">
+                <span className={`self-start ${deal.tagBg} text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest`}>
                   {deal.tag}
                 </span>
 
                 {/* Title */}
-                <h2 className="text-gray-900 font-black text-4xl md:text-5xl leading-tight" style={{ fontFamily: "'Oswald', sans-serif" }}>
+                <h2 className={`${deal.titleColor} font-black text-4xl md:text-5xl leading-tight`} style={{ fontFamily: "'Oswald', sans-serif" }}>
                   {deal.title}
                 </h2>
 
+                {/* Divider */}
+                <div className="h-px bg-white/20" />
+
                 {/* Description */}
-                <p className="text-gray-500 text-base leading-relaxed">
+                <p className={`${deal.descColor} text-base leading-relaxed`}>
                   {deal.description}
                 </p>
 
                 {/* Price */}
                 {deal.prices.length === 1 ? (
-                  <p className="text-red-600 font-black text-6xl leading-none" style={{ fontFamily: "'Oswald', sans-serif" }}>
+                  <p className={`${deal.priceColor} font-black text-6xl leading-none`} style={{ fontFamily: "'Oswald', sans-serif" }}>
                     {deal.prices[0].price}
                   </p>
                 ) : (
                   <div className="flex flex-wrap gap-4">
                     {deal.prices.map((p) => (
                       <div key={p.size} className="flex flex-col">
-                        <span className="text-gray-400 text-xs uppercase tracking-widest">{p.size}</span>
-                        <span className="text-red-600 font-black text-3xl leading-tight" style={{ fontFamily: "'Oswald', sans-serif" }}>
+                        <span className={`${deal.sizeColor} text-xs uppercase tracking-widest`}>{p.size}</span>
+                        <span className={`${deal.priceColor} font-black text-3xl leading-tight`} style={{ fontFamily: "'Oswald', sans-serif" }}>
                           {p.price}
                         </span>
                       </div>
@@ -152,7 +176,7 @@ export default function HeroSection() {
                 {/* Order button */}
                 
                   <a href="#order"
-                  className="self-start bg-red-600 hover:bg-red-700 text-white font-bold px-7 py-3 rounded-full text-sm uppercase tracking-widest transition-all duration-200 hover:scale-105 shadow-lg shadow-red-300/40 mt-2"
+                  className={`self-start ${deal.btnBg} ${deal.btnText} font-bold px-7 py-3 rounded-full text-sm uppercase tracking-widest transition-all duration-200 hover:scale-105 shadow-lg mt-2`}
                 >
                   Order Now
                 </a>

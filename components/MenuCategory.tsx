@@ -17,15 +17,20 @@ export default function MenuCategory({ category, items }: MenuSection) {
   }, []);
 
   return (
-    <div className="mb-12">
+    <div className="mb-10">
       <div
         ref={ref}
-        className={`transition-all duration-500 ${
+        className={`transition-all duration-500 mb-3 ${
           visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
         }`}
       >
-        <h3 className="text-2xl font-bold text-gray-900 mb-1 font-serif">{category}</h3>
-        <div className="w-12 h-1 bg-red-600 rounded mb-4" />
+        <h3
+          className="text-2xl text-red-700 mb-1"
+          style={{ fontFamily: "'Georgia', serif", fontStyle: "italic", fontWeight: 700 }}
+        >
+          {category}
+        </h3>
+        <div className="h-px bg-red-100" />
       </div>
       <div>
         {items.map((item) => (
