@@ -15,10 +15,52 @@ const raleway = Raleway({
 });
 
 export const metadata: Metadata = {
-  title: "Ambrose Pizza",
-  description: "Authentic homemade pizza. Pickup, delivery, or dine in.",
+  title: "Ambrose Pizza & Wings | Pizza, Wings & More on the Reserve",
+  description:
+    "Ambrose Pizza & Wings serves authentic New York-style pizza, saucy wings, Indian fried tacos, burgers, and more. Order pickup online.",
+  keywords: [
+    "pizza on the reserve",
+    "Six Nations pizza",
+    "Ambrose pizza",
+    "wings",
+    "Indian fried tacos",
+    "Southwold Ontario",
+  ],
   icons: { icon: "/favicon.ico" },
+  openGraph: {
+    title: "Ambrose Pizza & Wings",
+    description:
+      "Bold flavours and a diverse menu on the reserve. NY-style pizza, wings, tacos, burgers and more.",
+    url: "https://ambrosepizza.ca",
+    siteName: "Ambrose Pizza & Wings",
+    locale: "en_CA",
+    type: "website",
+  },
 };
+
+function RestaurantSchema() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    name: "Ambrose Pizza & Wings",
+    url: "https://ambrosepizza.ca",
+    servesCuisine: ["Pizza", "Wings", "Tacos", "Burgers"],
+    priceRange: "$$",
+    address: {
+      "@type": "PostalAddress",
+      addressRegion: "ON",
+      addressCountry: "CA",
+    },
+    menu: "https://ambrosepizza.ca/#menu",
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
 
 export default function RootLayout({
   children,
@@ -28,6 +70,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${raleway.variable}`}>
       <body className="bg-neutral-950 font-sans antialiased">
+        <RestaurantSchema />
         {children}
       </body>
     </html>

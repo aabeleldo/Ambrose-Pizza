@@ -3,7 +3,7 @@ import { useEffect, useState, useCallback } from "react";
 
 const DEALS = [
   {
-    tag: "Deal 1",
+    tag: null,
     title: "Pizza & Wing Deal",
     description: "1 Pizza with 2 Toppings + 1 lb of Wings",
     prices: [
@@ -123,7 +123,7 @@ export default function HeroSection() {
               animating ? "opacity-0 scale-95" : "opacity-100 scale-100"
             }`}
           >
-            <div className="flex flex-col md:flex-row min-h-[360px]">
+            <div className="flex flex-col md:flex-row h-[360px]">
 
               {/* Left — image */}
               <div className="md:w-1/2 flex items-center justify-center p-8">
@@ -137,10 +137,12 @@ export default function HeroSection() {
               {/* Right — info */}
               <div className="md:w-1/2 flex flex-col justify-center px-8 pb-10 md:py-10 gap-4">
 
-                {/* Tag */}
-                <span className={`self-start ${deal.tagBg} text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest`}>
-                  {deal.tag}
-                </span>
+                {/* Tag — only render if present */}
+                {deal.tag && (
+                  <span className={`self-start ${deal.tagBg} text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest`}>
+                    {deal.tag}
+                  </span>
+                )}
 
                 {/* Title */}
                 <h2 className={`${deal.titleColor} font-black text-4xl md:text-5xl leading-tight`} style={{ fontFamily: "'Oswald', sans-serif" }}>
