@@ -48,7 +48,7 @@ export default function AboutSection() {
         {/* Heading */}
         <FadeIn delay="delay-100" className="text-center mb-6">
           <h2 className="text-4xl md:text-5xl font-bold text-white font-serif">
-            More Than Just Pizza
+            Bold Flavours, Diverse Menu
           </h2>
         </FadeIn>
 
@@ -65,50 +65,52 @@ export default function AboutSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
           <FadeIn delay="delay-300">
             <p className="text-neutral-400 text-lg leading-relaxed mb-6">
-              Ambrose Pizza has been serving up handcrafted pies and homestyle comfort food
-              to our community in Southwold, Ontario. From our classic International Pizzas
-              to loaded breakfast wraps, fresh tacos, and juicy burgers — everything is
-              made with care and cooked to order.
+              Ambrose Pizza & Wings is your go-to spot on the reserve for bold flavours
+              and a menu that keeps things exciting. From authentic New York–style pizza
+              and saucy wings to Indian fried tacos, juicy burgers, and classic hotdogs —
+              there's something here for everyone.
             </p>
             <p className="text-neutral-400 text-lg leading-relaxed">
-              Whether you're stopping in for a quick lunch or feeding the whole family,
-              we've got something for everyone on the menu.
+              We also offer a variety of tacos inspired by flavours from around the world,
+              bringing global street food favourites right to the community.
             </p>
           </FadeIn>
 
           <FadeIn delay="delay-[400ms]">
-            <div className="relative h-72 md:h-80 rounded-2xl overflow-hidden border border-neutral-800">
-              <Image
-                src="/about-pizza.jpg"
-                alt="Handcrafted pizza being made"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/60 to-transparent" />
-            </div>
+            <div className="relative w-full max-w-sm mx-auto aspect-[3/4] rounded-2xl overflow-hidden border border-neutral-800">
+  <Image
+    src="/about-pizza.jpg"
+    alt="New York-style pizza at Ambrose Pizza & Wings"
+    fill
+    sizes="(max-width: 768px) 100vw, 50vw"
+    className="object-cover object-center"
+  />
+  <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/60 to-transparent" />
+</div>
           </FadeIn>
         </div>
 
         {/* Second row: image + text */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
           <FadeIn delay="delay-300" className="order-2 md:order-1">
-            <div className="relative h-72 md:h-80 rounded-2xl overflow-hidden border border-neutral-800">
-              <Image
-                src="/about-food.jpg"
-                alt="Comfort food spread"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/60 to-transparent" />
-            </div>
+            <div className="relative w-full max-w-sm mx-auto aspect-[3/4] rounded-2xl overflow-hidden border border-neutral-800">
+  <Image
+    src="/about-food.jpg"
+    alt="Comfort food spread at Ambrose Pizza & Wings"
+    fill
+    sizes="(max-width: 768px) 100vw, 50vw"
+    className="object-cover object-center"
+  />
+  <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/60 to-transparent" />
+</div>
           </FadeIn>
 
           <FadeIn delay="delay-[400ms]" className="order-1 md:order-2">
             <p className="text-neutral-400 text-lg leading-relaxed">
-              Beyond pizza, our menu spans breakfast sandwiches, classic burgers,
-              chicken wings, tacos, and more — made fresh every day. 
-              Come in, sit down, and stay a while. Or call ahead for pickup or delivery. 
-              Either way, we'll have something hot and ready for you.
+              At Ambrose Pizza & Wings, it's all about great taste, comfort food, and a
+              menu that never gets old. Whether you're craving a classic slice, a basket
+              of wings, or something a little different — we've got you covered, hot and
+              ready to go.
             </p>
           </FadeIn>
         </div>
@@ -116,9 +118,9 @@ export default function AboutSection() {
         {/* Stats */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
           {[
-            { value: "100%", label: "Made to Order", sub: "Nothing sits under a heat lamp" },
-            { value: "10+", label: "Menu Categories", sub: "Pizza, tacos, burgers, and more" },
-            { value: "3", label: "Ways to Order", sub: "Pickup, delivery, or dine in" },
+            { value: "NY-Style", label: "Authentic Pizza", sub: "Hand-stretched dough, bold toppings" },
+            { value: "World", label: "Inspired Tacos", sub: "Global street food on the reserve" },
+            { value: "Wings+", label: "So Much More", sub: "Burgers, hotdogs, fried tacos & more" },
           ].map((stat, i) => (
             <FadeIn key={stat.label} delay={`delay-[${(i + 4) * 100}ms]`}>
               <div className="text-center border border-neutral-800 rounded-2xl p-8 hover:border-red-800 transition-colors duration-300">
