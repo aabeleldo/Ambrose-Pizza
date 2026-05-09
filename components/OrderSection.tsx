@@ -14,8 +14,6 @@ export default function OrderSection() {
     return () => observer.disconnect();
   }, []);
 
-  const TOAST_ORDER_URL = "https://www.toasttab.com/ambrose-pizza";
-
   return (
     <section id="order" className="bg-red-600 py-20 px-4">
       <div
@@ -33,20 +31,18 @@ export default function OrderSection() {
         </h2>
 
         <p className="text-red-100 text-lg mb-10 leading-relaxed">
-          Order online for pickup — fresh out of the oven, ready when you are.
+          Give us a call — we'll have it fresh and ready for you.
         </p>
 
         
-          <a href={TOAST_ORDER_URL}
-          target="_blank"
-          rel="noopener noreferrer"
+          <a href="tel:+15198084884"
           className="inline-block bg-white text-red-600 font-bold text-lg px-10 py-4 rounded-full hover:bg-red-50 transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
         >
-          Order Pickup
+          📞 (519) 808-4884
         </a>
 
         <p className="text-red-200 text-sm mt-8">
-          Powered by Toast — secure, fast checkout.
+          Call to place your order — pickup ready in minutes.
         </p>
       </div>
     </section>
