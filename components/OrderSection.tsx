@@ -35,10 +35,10 @@ export default function OrderSection() {
         </p>
 
         
-          <a href="tel:+15198084884"
+          <a href="tel:+15198087779"
           className="inline-block bg-white text-red-600 font-bold text-lg px-10 py-4 rounded-full hover:bg-red-50 transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
         >
-          📞 (519) 808-4884
+          📞 (519) 808-7779
         </a>
 
         <p className="text-red-200 text-sm mt-8">
